@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FiNextOnlineLogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BlockActivityLog">
+    <Key>
+      <PropertyRef Name="BlockActivityLogID" />
+    </Key>
+    <Property Name="BlockActivityLogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlockType" Type="smallint" />
+    <Property Name="BlockName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ActivityType" Type="smallint" />
+    <Property Name="ActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="SystemIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SessionID" Type="nvarchar" MaxLength="250" />
+    <Property Name="UniqueID" Type="nvarchar" MaxLength="250" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FieldActivityLog">
+    <Key>
+      <PropertyRef Name="FieldActivityLogID" />
+    </Key>
+    <Property Name="FieldActivityLogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FieldValue" Type="nvarchar(max)" />
+    <Property Name="ActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="SystemIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SessionID" Type="nvarchar" MaxLength="250" />
+    <Property Name="UniqueID" Type="nvarchar" MaxLength="250" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="InsertedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FiNextOnlineLogModelStoreContainer">
+    <EntitySet Name="BlockActivityLog" EntityType="Self.BlockActivityLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FieldActivityLog" EntityType="Self.FieldActivityLog" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

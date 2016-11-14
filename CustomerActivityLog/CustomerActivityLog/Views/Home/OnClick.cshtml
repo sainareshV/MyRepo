@@ -1,0 +1,48 @@
+﻿@model  IEnumerable<CustomerActivityLog.BlockActivityLog>
+
+@{
+        ViewBag.Title = "OnClick";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<div class="col-lg-3 col-md-4">
+    <br />
+    <p><b>List of Completed Block Names for : @ViewBag.Id</b></p>
+    
+    @using (Html.BeginForm("OnSubmit", "Home", FormMethod.Post))
+    {
+    <div class="text-warning">
+        <table align="center" class="table">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.DisplayFor(model => item.BlockName)
+                        <a href="">@item.BlockName</a>*@
+                        @Html.ActionLink(item.BlockName, "GetDetails", "Home",new {InsertedBy=item.InsertedBy,BlockId=item.BlockName,SessionId=item.SessionID},null)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <input type="submit" class="btn btn-default" value="Get Whole Customer Data" />
+    }
+</div>
+<div class="col-lg-9 col-md-8">
+    <table>
+        <tr>
+            <td>
+             
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+  
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CustomerActivityLog.FieldActivityLog>
+
+@{
+    ViewBag.Title = "OnSubmit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+tr:nth-child(odd)    { background-color:#eee; }
+tr:nth-child(even)   { background-color:#fff; }
+</style>
+<h2>List Of Candidate Details</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UniqueID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FieldName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FieldValue)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniqueID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FieldName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FieldValue)
+        </td>
+      
+    </tr>
+}
+
+</table>

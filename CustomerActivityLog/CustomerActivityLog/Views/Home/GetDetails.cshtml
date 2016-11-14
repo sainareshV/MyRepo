@@ -1,0 +1,82 @@
+﻿@model  CustomerActivityLog.Models.AccVM
+@{
+    ViewBag.Title = "GetDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var listObj = Model.Lists;
+    var addlist = Model.Address;
+    var emplist = Model.Employee;
+    var incomelist = Model.Income;
+
+}
+
+<h2>GetDetails</h2>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+
+        <th>
+           Value
+        </th>
+      
+    </tr>
+    @if(listObj!=null && listObj.Count() > 0) { 
+    foreach (var item in listObj)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+        </tr>
+    }
+}
+    @if (addlist != null && addlist.Count() > 0)
+    {
+        foreach (var item in addlist)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+            </tr>
+        }
+    }
+    @if (emplist != null && emplist.Count() > 0)
+    {
+        foreach (var item in emplist)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+            </tr>
+        }
+    }
+    @if (incomelist != null && incomelist.Count() > 0)
+    {
+        foreach (var item in incomelist)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>

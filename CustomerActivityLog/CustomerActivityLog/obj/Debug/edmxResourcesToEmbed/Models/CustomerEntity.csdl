@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FiNextOnlineLogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BlockActivityLog">
+    <Key>
+      <PropertyRef Name="BlockActivityLogID" />
+    </Key>
+    <Property Name="BlockActivityLogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlockType" Type="Int16" />
+    <Property Name="BlockName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityType" Type="Int16" />
+    <Property Name="ActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SystemIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SessionID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UniqueID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="FieldActivityLog">
+    <Key>
+      <PropertyRef Name="FieldActivityLogID" />
+    </Key>
+    <Property Name="FieldActivityLogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FieldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SystemIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SessionID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UniqueID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="FiNextOnlineLogEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BlockActivityLogs" EntityType="Self.BlockActivityLog" />
+    <EntitySet Name="FieldActivityLogs" EntityType="Self.FieldActivityLog" />
+  </EntityContainer>
+</Schema>
